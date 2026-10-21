@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The World Right Now — daily video feed</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#080808;color:#fff;font-family:Arial,Helvetica,sans-serif}
+body{padding:12px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.head strong{font-size:11px;letter-spacing:.12em}.time{font-size:10px;color:#aaa}.dot{display:inline-block;vertical-align:middle;margin-right:7px;width:6px;height:6px;border-radius:50%;background:#ee4a43}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.tile{min-width:0}.video{position:relative;width:100%;aspect-ratio:9/16;background:#151515;overflow:hidden}.video iframe{position:absolute;inset:0;border:0;width:100%;height:100%;display:block}.empty{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;text-align:center;padding:20px}.meta{padding-top:8px;display:flex;justify-content:space-between;gap:7px}.name{font-size:11px;letter-spacing:.05em;font-weight:700}.source{font-size:9px;color:#aaa;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.title{display:block;font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;margin-top:4px}.title:hover{color:#fff}.footer{padding:12px 0 0;font-size:9px;line-height:1.5;color:#777}
+/* Standalone video: use one Readymag Code widget per category. */
+html.single,body.single{background:transparent;height:100%;min-height:0;overflow:hidden}body.single{padding:0}body.single .head,body.single .footer{display:none}body.single .grid{display:block;width:100%;height:100%}body.single .tile{width:100%;height:100%}body.single .video{width:100%;height:100%;aspect-ratio:auto}body.single .meta,body.single .title{display:none}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}body:not(.single){padding:8px}.meta{display:block}.source{display:block;margin-top:4px}}
+</style>
+</head>
+<body>
+<div class="head"><strong>THE WORLD RIGHT NOW</strong><span class="time"><span class="dot"></span><span id="updated">DAILY VIDEO SELECTION</span></span></div>
+<main class="grid" id="grid"></main>
+<div class="footer">Videos embedded from YouTube. Automatic selection does not verify authenticity or severity. Some players require interaction to start. Format is 9:16 but not every selected source is guaranteed to be recorded vertically.</div>
+<script>
+const TOPICS={war:'WAR',animals:'ANIMAL SUFFERING',protests:'PROTESTS',climate:'CLIMATE',migration:'MIGRATION',wealth:'WEALTH & POWER'};
+const chosen = new URLSearchParams(location.search).get('topic');
+const single = Object.hasOwn(TOPICS,chosen);
+if(single){ document.documentElement.classList.add('single'); document.body.classList.add('single'); }
+const grid=document.getElementById('grid');
+function node(tag,cls,txt){const el=document.createElement(tag);if(cls)el.className=cls;if(txt)el.textContent=txt;return el}
+function draw(data){
+ grid.replaceChildren();
+ const keys=single?[chosen]:Object.keys(TOPICS);
+ for(const key of keys){
+  const v=data.videos?.[key], tile=node('article','tile'), video=node('div','video');
+  if(v&&/^[A-Za-z0-9_-]{11}$/.test(v.id)){
+    const iframe=document.createElement('iframe');
+    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(v.id)+'?'+new URLSearchParams({autoplay:'1',mute:'1',controls:'1',playsinline:'1',loop:'1',playlist:v.id,rel:'0'});
+    iframe.title=TOPICS[key]+': '+(v.title||'YouTube video');
+    iframe.allow='autoplay; encrypted-media; picture-in-picture';
+    iframe.referrerPolicy='strict-origin-when-cross-origin';
+    iframe.allowFullscreen=true;
+    video.appendChild(iframe);
+  }else video.appendChild(node('div','empty','NO CLIP AVAILABLE'));
+  tile.appendChild(video);
+  if(!single){
+    const meta=node('div','meta');meta.appendChild(node('span','name',TOPICS[key]));meta.appendChild(node('span','source',v?.channel||''));tile.appendChild(meta);
+    if(v){const a=node('a','title',v.title||'View on YouTube');a.href='https://www.youtube.com/watch?v='+encodeURIComponent(v.id);a.target='_blank';a.rel='noopener noreferrer';tile.appendChild(a)}
+  }
+  grid.appendChild(tile);
+ }
+ if(data.updatedAt){const d=new Date(data.updatedAt);if(!isNaN(d)){document.getElementById('updated').textContent='UPDATED '+d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}).toUpperCase()}}
+}
+fetch('./videos.json?ts='+Date.now(),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Unavailable');return r.json()}).then(draw).catch(()=>draw({videos:{}}));
+</script>
+</body></html>
