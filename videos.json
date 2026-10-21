@@ -1,1 +1,21 @@
-{"updatedAt":null,"videos":{}}
+{
+  "updatedAt": "2026-10-21T20:39:44.508766+00:00",
+  "videos": {
+    "war": null,
+    "animals": null,
+    "protests": {
+      "id": "K1TH_QEjG4w",
+      "title": "Delhi Protest: What Happened to the Students? 🇮🇳 | Tiranga March  #shorts #delhipolice #nehabora",
+      "channel": "Safarnama with Sanjir",
+      "publishedAt": "2026-10-20T14:06:13Z"
+    },
+    "climate": {
+      "id": "DfGukY945HI",
+      "title": "Indonesia&#39;s Worst Fires in 11 Years, Spain Floods, Hurricane Trudy #shorts",
+      "channel": "World News Radar",
+      "publishedAt": "2026-10-19T17:00:25Z"
+    },
+    "migration": null,
+    "wealth": null
+  }
+}
