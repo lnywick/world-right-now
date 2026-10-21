@@ -1,77 +1,95 @@
-"""Daily YouTube Data API selector. Requires YOUTUBE_API_KEY secret."""
+"""Daily selector for six topical, embeddable YouTube clips.
+
+Requires GitHub repository secret YOUTUBE_API_KEY. Uses only Python stdlib.
+
+Limits: YouTube Data API does NOT expose reliable video orientation or the
+actual contents of footage. Entries must be editorially reviewed if accuracy,
+portrait-only footage or sensitivity guarantees are required.
+"""
+
+from __future__ import annotations
+
 import datetime as dt
+import html
 import json
+import math
 import os
 import re
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
-BASE = 'https://www.googleapis.com/youtube/v3/'
-API_KEY = os.environ.get('YOUTUBE_API_KEY')
-OUT = Path(__file__).parent / 'videos.json'
-# Broad public-interest search terms; editorial / source verification is NOT automated.
+API_BASE = "https://www.googleapis.com/youtube/v3/"
+API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
+OUT = Path(__file__).with_name("videos.json")
+
+# Three fairly broad searches for each category. The script also checks
+# metadata and duration after searching. These queries are not assertions
+# that videos are accurate, original, vertical, or important.
 TOPICS = {
- 'war': 'war conflict civilians aftermath shorts news',
- 'animals': 'animal welfare factory farming investigation shorts',
- 'protests': 'demonstration protest march police news shorts',
- 'climate': 'flood wildfire extreme weather climate shorts news',
- 'migration': 'refugees migration humanitarian border shorts news',
- 'wealth': 'billionaires wealth inequality corporate power shorts news',
+    "war": {
+        "queries": ["war news shorts", "conflict civilians news short", "war footage news #shorts"],
+        "relevance": r"\b(war|wars|conflict|attack|airstrike|bombing|combat|ceasefire|gaza|ukraine|sudan|civilian|military)\b",
+    },
+    "animals": {
+        "queries": ["animal cruelty news shorts", "factory farming animals shorts", "animal welfare investigation shorts"],
+        "relevance": r"\b(animal|animals|farm|farming|livestock|welfare|cruelty|slaughter|cattle|pigs|chickens|factory farm|wildlife)\b",
+    },
+    "protests": {
+        "queries": ["protests demonstration news shorts", "protesters march news #shorts", "police protest footage shorts"],
+        "relevance": r"\b(protest|protests|protester|demonstration|demonstrators|march|rally|strike|police)\b",
+    },
+    "climate": {
+        "queries": ["flood wildfire climate news shorts", "extreme weather disaster shorts", "climate crisis flooding news shorts"],
+        "relevance": r"\b(flood|flooding|floods|wildfire|fire|fires|heatwave|drought|hurricane|typhoon|storm|climate|extreme weather|environment)\b",
+    },
+    "migration": {
+        "queries": ["refugees border news shorts", "migration crisis news short", "migrants journey humanitarian #shorts"],
+        "relevance": r"\b(refugee|refugees|migration|migrant|migrants|asylum|border|displaced|crossing|evacuation)\b",
+    },
+    "wealth": {
+        "queries": ["billionaire wealth inequality shorts", "billionaires money power news shorts", "wealth gap poverty rich #shorts"],
+        "relevance": r"\b(billionaire|billionaires|wealth|rich|poverty|inequality|millionaire|money|corporate|ceo|fortune|income)\b",
+    },
 }
-# Avoid obviously sensational or misleading text, without asserting safe content.
-BLOCK = re.compile(r'\b(gore|graphic|uncensored|beheading|execution|dead bodies|fake|ai generated|parody|gameplay|reaction|compilation)\b', re.I)
 
-def api(endpoint, params):
-    params = dict(params, key=API_KEY)
-    with urlopen(BASE + endpoint + '?' + urlencode(params), timeout=25) as res:
-        return json.load(res)
+# Avoid obviously inappropriate categories for an unreviewed auto feed.
+BLOCK = re.compile(
+    r"\b(gore|graphic|uncensored|beheading|execution|dead bodies|deepfake|fake news|"
+    r"ai generated|ai-generated|parody|gameplay|reaction video|compilation|"
+    r"movie trailer|video game)\b",
+    re.I,
+)
+SHORT_HINT = re.compile(r"(?:#shorts\b|\bshorts\b|#reels\b)", re.I)
+ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
-def seconds(iso):
-    m = re.fullmatch(r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?', iso or '')
-    return (int(m.group(1) or 0)*3600+int(m.group(2) or 0)*60+int(m.group(3) or 0)) if m else 0
 
-def pick(topic, query, used, old):
-    since = (dt.datetime.now(dt.timezone.utc)-dt.timedelta(days=7)).strftime('%Y-%m-%dT%H:%M:%SZ')
-    results=api('search', {'part':'snippet','q':query,'type':'video','videoEmbeddable':'true','videoDuration':'short','safeSearch':'moderate','order':'date','publishedAfter':since,'maxResults':25})['items']
-    ids=[it['id']['videoId'] for it in results if it.get('id',{}).get('videoId')]
-    if ids:
-        detail=api('videos', {'part':'contentDetails,status,statistics','id':','.join(ids)})['items']
-        detail={v['id']:v for v in detail}
-        choices=[]
-        for rank,it in enumerate(results):
-            vid=it.get('id',{}).get('videoId'); val=detail.get(vid)
-            if not val or vid in used: continue
-            title=it['snippet'].get('title','')
-            if BLOCK.search(title+' '+it['snippet'].get('description','')): continue
-            if not val.get('status',{}).get('embeddable',False): continue
-            length=seconds(val.get('contentDetails',{}).get('duration'))
-            if not 15<=length<=90: continue
-            if val.get('contentDetails',{}).get('regionRestriction',{}).get('blocked') and 'CH' in val['contentDetails']['regionRestriction']['blocked']: continue
-            views=int(val.get('statistics',{}).get('viewCount',0))
-            choices.append((rank, -min(views,1000000), {'id':vid,'title':title,'channel':it['snippet'].get('channelTitle',''),'publishedAt':it['snippet'].get('publishedAt','')}))
-        # Newest matching clip first; among equally ranked clips views break tie.
-        if choices:
-            choices.sort(key=lambda p:(p[0],p[1])); chosen=choices[0][2];used.add(chosen['id']);return chosen
-    if old and re.fullmatch(r'[A-Za-z0-9_-]{11}',old.get('id','')) and old['id'] not in used:
-        used.add(old['id']);return old
-    return None
+def api(endpoint: str, params: dict) -> dict:
+    q = urlencode({**params, "key": API_KEY})
+    try:
+        with urlopen(API_BASE + endpoint + "?" + q, timeout=30) as response:
+            return json.load(response)
+    except HTTPError as e:
+        # Never print an URL containing the API key.
+        detail = e.read(512).decode("utf-8", errors="replace")
+        raise RuntimeError(f"YouTube API HTTP {e.code}: {detail}") from e
+    except URLError as e:
+        raise RuntimeError(f"YouTube API connection error: {e.reason}") from e
 
-def main():
-    if not API_KEY: raise SystemExit('Set YOUTUBE_API_KEY in GitHub Actions Secrets')
-    try: previous=json.loads(OUT.read_text())
-    except (FileNotFoundError,json.JSONDecodeError): previous={}
-    used=set(); videos={}
-    for topic,query in TOPICS.items():
-        try: videos[topic]=pick(topic,query,used,previous.get('videos',{}).get(topic))
-        except Exception as exc:
-            print(f'{topic}: API failed: {exc}')
-            old=previous.get('videos',{}).get(topic)
-            videos[topic]=old if old and old.get('id') not in used else None
-            if videos[topic]: used.add(old['id'])
-    if not any(videos.values()): raise SystemExit('No feed entries; preserving previously deployed site')
-    payload={'updatedAt':dt.datetime.now(dt.timezone.utc).isoformat(),'videos':videos}
-    OUT.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
-    print('Selected',sum(bool(x) for x in videos.values()),'clips')
 
-if __name__=='__main__': main()
+def duration_seconds(value: str) -> int:
+    match = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", value or "")
+    if not match:
+        return 0
+    h, m, s = (int(part or 0) for part in match.groups())
+    return 3600 * h + 60 * m + s
+
+
+def published_age_hours(iso_time: str, now: dt.datetime) -> float:
+    try:
+        parsed = dt.datetime.fromisoformat(iso_time.replace("Z", "+00:00"))
+        return max(0, (now - parsed).total_seconds() / 3600)
+    except (ValueError, AttributeError):
+        return 10**9
+
