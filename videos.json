@@ -1,21 +1,53 @@
 {
-  "updatedAt": "2026-10-21T20:39:44.508766+00:00",
+  "updatedAt": "2026-10-22T18:55:56.396931+00:00",
   "videos": {
-    "war": null,
-    "animals": null,
+    "war": {
+      "id": "UDFzD_E0p_8",
+      "title": "Mali Forces Abuse Civilians | #Shorts",
+      "channel": "Ananas News",
+      "publishedAt": "2026-10-19T09:40:53Z",
+      "durationSeconds": 30,
+      "shortsHint": true
+    },
+    "animals": {
+      "id": "ZIs_ho8kFtI",
+      "title": "Animal Crime Investigations: Expert Support for Law Enforcement #shorts",
+      "channel": "Behind the Thin Blue Line",
+      "publishedAt": "2026-10-20T11:01:38Z",
+      "durationSeconds": 46,
+      "shortsHint": true
+    },
     "protests": {
-      "id": "K1TH_QEjG4w",
-      "title": "Delhi Protest: What Happened to the Students? 🇮🇳 | Tiranga March  #shorts #delhipolice #nehabora",
-      "channel": "Safarnama with Sanjir",
-      "publishedAt": "2026-10-20T14:06:13Z"
+      "id": "TBfc-11MUzw",
+      "title": "MEXICO CITY PROTEST ERUPTS! Health Workers March Again, Demand Higher Wages #shorts #mexico #protest",
+      "channel": "ET Now World",
+      "publishedAt": "2026-10-22T11:10:18Z",
+      "durationSeconds": 61,
+      "shortsHint": true
     },
     "climate": {
       "id": "DfGukY945HI",
-      "title": "Indonesia&#39;s Worst Fires in 11 Years, Spain Floods, Hurricane Trudy #shorts",
+      "title": "Indonesia's Worst Fires in 11 Years, Spain Floods, Hurricane Trudy #shorts",
       "channel": "World News Radar",
-      "publishedAt": "2026-10-19T17:00:25Z"
+      "publishedAt": "2026-10-19T17:00:25Z",
+      "durationSeconds": 45,
+      "shortsHint": true
     },
-    "migration": null,
-    "wealth": null
+    "migration": {
+      "id": "ZDG8zPo44UE",
+      "title": "Hundreds of Migrants Trek Through Mexico As Caravan Approaches US Border #shorts",
+      "channel": "New York Post",
+      "publishedAt": "2026-10-22T06:30:09Z",
+      "durationSeconds": 65,
+      "shortsHint": true
+    },
+    "wealth": {
+      "id": "B4QURZi-Vps",
+      "title": "Why Wealth Inequality Isn't The Real Problem #money #politics #shorts",
+      "channel": "CHILLIN IN DA LOUNGE",
+      "publishedAt": "2026-10-14T14:47:51Z",
+      "durationSeconds": 27,
+      "shortsHint": true
+    }
   }
 }
