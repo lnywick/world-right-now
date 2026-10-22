@@ -1,10 +1,11 @@
-"""Daily selector for six topical, embeddable YouTube clips.
+"""Select up to six fresh, embeddable YouTube clips for World Right Now.
 
-Requires GitHub repository secret YOUTUBE_API_KEY. Uses only Python stdlib.
+Run with: YOUTUBE_API_KEY=<secret> python update_feed.py
+GitHub Actions supplies the API key via repository secrets.
 
-Limits: YouTube Data API does NOT expose reliable video orientation or the
-actual contents of footage. Entries must be editorially reviewed if accuracy,
-portrait-only footage or sensitivity guarantees are required.
+Important: YouTube's public Data API cannot guarantee 9:16 orientation,
+authenticity, safety, or editorial significance. #Shorts is only a hint.
+No footage is downloaded, cropped, re-hosted or modified here.
 """
 
 from __future__ import annotations
@@ -12,84 +13,83 @@ from __future__ import annotations
 import datetime as dt
 import html
 import json
-import math
 import os
 import re
+import sys
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
 API_BASE = "https://www.googleapis.com/youtube/v3/"
-API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
+API_KEY = os.environ.get("YOUTUBE_API_KEY", "").strip()
 OUT = Path(__file__).with_name("videos.json")
+MAX_AGE_DAYS = 14
+MIN_SECONDS = 12
+MAX_SECONDS = 180
 
-# Three fairly broad searches for each category. The script also checks
-# metadata and duration after searching. These queries are not assertions
-# that videos are accurate, original, vertical, or important.
+# Three searches at most for each category; 18 search requests/day maximum.
+# The second and third query are only used when necessary.
 TOPICS = {
     "war": {
-        "queries": ["war news shorts", "conflict civilians news short", "war footage news #shorts"],
-        "relevance": r"\b(war|wars|conflict|attack|airstrike|bombing|combat|ceasefire|gaza|ukraine|sudan|civilian|military)\b",
+        "queries": ["war civilians news shorts", "ukraine gaza sudan war footage shorts", "war conflict breaking news #shorts"],
+        "relevance": r"\b(war|conflict|airstrike|bombing|missile|gaza|ukraine|sudan|ceasefire|soldiers|military|civilians?|attacks?)\b",
     },
     "animals": {
-        "queries": ["animal cruelty news shorts", "factory farming animals shorts", "animal welfare investigation shorts"],
-        "relevance": r"\b(animal|animals|farm|farming|livestock|welfare|cruelty|slaughter|cattle|pigs|chickens|factory farm|wildlife)\b",
+        "queries": ["animal cruelty investigation shorts", "factory farming animal welfare #shorts", "wildlife poaching rescue news shorts"],
+        "relevance": r"\b(animals?|cruelty|slaughter|factory farm|farming|livestock|cattle|pigs?|chickens?|wildlife|poaching|rescue|welfare|abuse)\b",
     },
     "protests": {
-        "queries": ["protests demonstration news shorts", "protesters march news #shorts", "police protest footage shorts"],
-        "relevance": r"\b(protest|protests|protester|demonstration|demonstrators|march|rally|strike|police)\b",
+        "queries": ["protest march demonstration news shorts", "police protesters breaking news #shorts", "mass protest strike news short"],
+        "relevance": r"\b(protests?|protesters?|demonstrations?|demonstrators?|march|rally|strikes?|police|unrest)\b",
     },
     "climate": {
-        "queries": ["flood wildfire climate news shorts", "extreme weather disaster shorts", "climate crisis flooding news shorts"],
-        "relevance": r"\b(flood|flooding|floods|wildfire|fire|fires|heatwave|drought|hurricane|typhoon|storm|climate|extreme weather|environment)\b",
+        "queries": ["flood wildfire disaster news shorts", "extreme weather climate news #shorts", "drought heatwave storm footage shorts"],
+        "relevance": r"\b(flood(?:s|ing)?|wildfires?|fires?|heatwaves?|drought|hurricanes?|typhoons?|storms?|climate|disaster|extreme weather|cyclone|landslide)\b",
     },
     "migration": {
-        "queries": ["refugees border news shorts", "migration crisis news short", "migrants journey humanitarian #shorts"],
-        "relevance": r"\b(refugee|refugees|migration|migrant|migrants|asylum|border|displaced|crossing|evacuation)\b",
+        "queries": ["refugees border migration news shorts", "migrants asylum humanitarian crisis shorts", "refugee displacement news #shorts"],
+        "relevance": r"\b(refugees?|migration|migrants?|asylum|border|displaced|displacement|crossing|evacuation|deportation)\b",
     },
     "wealth": {
-        "queries": ["billionaire wealth inequality shorts", "billionaires money power news shorts", "wealth gap poverty rich #shorts"],
-        "relevance": r"\b(billionaire|billionaires|wealth|rich|poverty|inequality|millionaire|money|corporate|ceo|fortune|income)\b",
+        "queries": ["billionaire wealth inequality news shorts", "billionaires money power #shorts", "wealth gap rich poor economic news shorts"],
+        "relevance": r"\b(billionaires?|wealth|inequality|millionaires?|rich|poverty|corporate|ceo|fortunes?|income|wealth gap|oligarchs?)\b",
     },
 }
 
-# Avoid obviously inappropriate categories for an unreviewed auto feed.
+# Helps avoid exploitative content and clearly off-topic gameplay/reactions.
 BLOCK = re.compile(
-    r"\b(gore|graphic|uncensored|beheading|execution|dead bodies|deepfake|fake news|"
-    r"ai generated|ai-generated|parody|gameplay|reaction video|compilation|"
-    r"movie trailer|video game)\b",
-    re.I,
+    r"\b(gore|uncensored|beheading|execution|dead bodies|deepfake|"
+    r"ai.generated|parody|gameplay|reaction video|compilation|"
+    r"movie trailer|video game|graphic footage)\b", re.I
 )
 SHORT_HINT = re.compile(r"(?:#shorts\b|\bshorts\b|#reels\b)", re.I)
+NEWS_HINT = re.compile(r"\b(news|reuters|associated press|ap news|bbc|dw|al jazeera|france 24|guardian|abc news|sky news)\b", re.I)
 ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
 
-def api(endpoint: str, params: dict) -> dict:
-    q = urlencode({**params, "key": API_KEY})
+def youtube_api(endpoint: str, params: dict) -> dict:
+    """Make an API request; keep the secret out of logs and exceptions."""
+    url = API_BASE + endpoint + "?" + urlencode({**params, "key": API_KEY})
     try:
-        with urlopen(API_BASE + endpoint + "?" + q, timeout=30) as response:
+        with urlopen(url, timeout=30) as response:
             return json.load(response)
-    except HTTPError as e:
-        # Never print an URL containing the API key.
-        detail = e.read(512).decode("utf-8", errors="replace")
-        raise RuntimeError(f"YouTube API HTTP {e.code}: {detail}") from e
-    except URLError as e:
-        raise RuntimeError(f"YouTube API connection error: {e.reason}") from e
+    except HTTPError as exc:
+        # Do not output the URL (it contains the API key).
+        try:
+            error = json.loads(exc.read().decode("utf-8"))
+            message = error.get("error", {}).get("message", "API request rejected")
+        except (ValueError, UnicodeDecodeError, AttributeError):
+            message = "API request rejected"
+        raise RuntimeError(f"YouTube API HTTP {exc.code}: {message}") from None
+    except URLError as exc:
+        raise RuntimeError(f"YouTube API network failure: {exc.reason}") from None
 
 
-def duration_seconds(value: str) -> int:
-    match = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", value or "")
+def duration_seconds(duration: str) -> int:
+    match = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", duration or "")
     if not match:
         return 0
-    h, m, s = (int(part or 0) for part in match.groups())
-    return 3600 * h + 60 * m + s
-
-
-def published_age_hours(iso_time: str, now: dt.datetime) -> float:
-    try:
-        parsed = dt.datetime.fromisoformat(iso_time.replace("Z", "+00:00"))
-        return max(0, (now - parsed).total_seconds() / 3600)
-    except (ValueError, AttributeError):
-        return 10**9
+    hours, minutes, seconds = (int(x or 0) for x in match.groups())
+    return hours * 3600 + minutes * 60 + seconds
 
