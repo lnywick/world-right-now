@@ -30,7 +30,19 @@ function draw(data){
   const v=data.videos?.[key], tile=node('article','tile'), video=node('div','video');
   if(v&&/^[A-Za-z0-9_-]{11}$/.test(v.id)){
     const iframe=document.createElement('iframe');
-    iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(v.id)+'?'+new URLSearchParams({autoplay:'1',mute:'1',controls:'0',disablekb:'1',playsinline:'1',loop:'1',playlist:v.id,rel:'0'});
+   
+iframe.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(v.id)+'?'+new URLSearchParams({
+  autoplay:'1',
+  mute:'1',
+  controls:'0',
+  disablekb:'1',
+  fs:'0',
+  playsinline:'1',
+  loop:'1',
+  playlist:v.id,
+  rel:'0'
+});
+
     iframe.title=TOPICS[key]+': '+(v.title||'YouTube video');
     iframe.allow='autoplay; encrypted-media; picture-in-picture';
     iframe.referrerPolicy='strict-origin-when-cross-origin';
