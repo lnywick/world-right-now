@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-26T08:07:23.259310+00:00",
+  "updatedAt": "2026-10-26T19:10:29.364937+00:00",
   "videos": {
     "war": {
-      "id": "WRTzf8D2HrM",
-      "title": "One Town Gets a Ceasefire — But Two Dates Disagree #Shorts",
-      "channel": "Daily War News",
-      "publishedAt": "2026-10-24T11:13:41Z",
-      "durationSeconds": 60,
+      "id": "B0eJVb3NGIg",
+      "title": "🚨 Title: Iran US War Update: ईरान को बड़ा झटका! क्या अब शुरू होगी महाजंग? 🔥 #shorts #shortvideo",
+      "channel": "News hi News",
+      "publishedAt": "2026-10-26T15:31:02Z",
+      "durationSeconds": 28,
       "shortsHint": true
     },
     "animals": {
@@ -18,36 +18,64 @@
       "shortsHint": true
     },
     "protests": {
-      "id": "rvTuSu7kOsM",
-      "title": "Paris Cost-Of-Living March: 110,000 By One Count, 250,000 By Union's #Shorts",
-      "channel": "NewYork60S News",
-      "publishedAt": "2026-10-25T13:10:19Z",
-      "durationSeconds": 45,
+      "id": "_2UK-iZ1kTs",
+      "title": "🔥 France Protest Update: Hundreds of Thousands March Under Heavy Security! 😱 | #Shorts #shortfeed.",
+      "channel": "EuroFlash News 🌎",
+      "publishedAt": "2026-10-26T13:00:14Z",
+      "durationSeconds": 18,
       "shortsHint": true
     },
     "climate": {
-      "id": "EHZWCOhfWQk",
-      "title": "Northeast Monsoon Variability & Climate Resilience | UPSC GS3 #Shorts",
+      "id": "DRBiBZgwcS0",
+      "title": "Cyclone Preparedness And Disaster Management Framework | UPSC GS3 #Shorts",
       "channel": "Daily News Teller",
-      "publishedAt": "2026-10-25T18:58:49Z",
-      "durationSeconds": 37,
+      "publishedAt": "2026-10-24T02:06:56Z",
+      "durationSeconds": 35,
       "shortsHint": true
     },
     "migration": {
-      "id": "QYivST0XpW0",
-      "title": "MASSIVE migrant caravan heads toward US border as midterms HEAT UP #shorts #us #immigration",
-      "channel": "Fox News",
-      "publishedAt": "2026-10-22T20:45:24Z",
-      "durationSeconds": 67,
+      "id": "U5y1wpg7lsc",
+      "title": "Kosovo Crisis: Refugees Flee, Leaders Meet, Peace Deadline Looms! #shorts",
+      "channel": "The Enli Hamzai Podcast",
+      "publishedAt": "2026-10-22T17:41:58Z",
+      "durationSeconds": 94,
       "shortsHint": true
     },
     "wealth": {
-      "id": "0oT-vDh9StI",
-      "title": "The Rich Keep Getting Richer #motivation #inspiration #mindset #quotes #billionaire #facts #shorts",
-      "channel": "Ascendra ",
-      "publishedAt": "2026-10-24T12:24:52Z",
-      "durationSeconds": 42,
+      "id": "-mjLk9B0ro0",
+      "title": "Power of money💪🏻💸🛥️ #mindset #success #fact #viral #billionaire #billionaire #shorts #luxurylif",
+      "channel": "Fact Zone",
+      "publishedAt": "2026-10-26T13:02:21Z",
+      "durationSeconds": 36,
       "shortsHint": true
     }
+  },
+  "recentlyShown": {
+    "war": [
+      "B0eJVb3NGIg"
+    ],
+    "animals": [
+      "ZIs_ho8kFtI"
+    ],
+    "protests": [
+      "_2UK-iZ1kTs"
+    ],
+    "climate": [
+      "DRBiBZgwcS0"
+    ],
+    "migration": [
+      "U5y1wpg7lsc"
+    ],
+    "wealth": [
+      "-mjLk9B0ro0"
+    ]
+  },
+  "lastChangedAt": {
+    "war": "2026-10-26T19:10:29.364937+00:00",
+    "animals": "2026-10-26T08:07:23.259310+00:00",
+    "protests": "2026-10-26T19:10:29.364937+00:00",
+    "climate": "2026-10-26T19:10:29.364937+00:00",
+    "migration": "2026-10-26T19:10:29.364937+00:00",
+    "wealth": "2026-10-26T19:10:29.364937+00:00"
   }
 }
