@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-26T19:10:29.364937+00:00",
+  "updatedAt": "2026-10-26T19:22:00.130154+00:00",
   "videos": {
     "war": {
-      "id": "B0eJVb3NGIg",
-      "title": "🚨 Title: Iran US War Update: ईरान को बड़ा झटका! क्या अब शुरू होगी महाजंग? 🔥 #shorts #shortvideo",
-      "channel": "News hi News",
-      "publishedAt": "2026-10-26T15:31:02Z",
-      "durationSeconds": 28,
+      "id": "1YdzbOis2TU",
+      "title": "Saudi-Houthis War: सऊदी को तुर्की ने दिया धोखा? #breakingnews #shorts #ytshorts #youtubeshorts",
+      "channel": "News State",
+      "publishedAt": "2026-10-26T02:30:22Z",
+      "durationSeconds": 70,
       "shortsHint": true
     },
     "animals": {
@@ -18,64 +18,69 @@
       "shortsHint": true
     },
     "protests": {
-      "id": "_2UK-iZ1kTs",
-      "title": "🔥 France Protest Update: Hundreds of Thousands March Under Heavy Security! 😱 | #Shorts #shortfeed.",
-      "channel": "EuroFlash News 🌎",
-      "publishedAt": "2026-10-26T13:00:14Z",
-      "durationSeconds": 18,
+      "id": "SAhIgxRqBT0",
+      "title": "#Shorts | Mumbai Police Detains Comedian Masoom Rajwani over Protest for Sahil Wakode | IIT Bombay",
+      "channel": "HW News English",
+      "publishedAt": "2026-10-26T11:22:39Z",
+      "durationSeconds": 20,
       "shortsHint": true
     },
     "climate": {
-      "id": "DRBiBZgwcS0",
-      "title": "Cyclone Preparedness And Disaster Management Framework | UPSC GS3 #Shorts",
+      "id": "EHZWCOhfWQk",
+      "title": "Northeast Monsoon Variability & Climate Resilience | UPSC GS3 #Shorts",
       "channel": "Daily News Teller",
-      "publishedAt": "2026-10-24T02:06:56Z",
-      "durationSeconds": 35,
+      "publishedAt": "2026-10-25T18:58:49Z",
+      "durationSeconds": 37,
       "shortsHint": true
     },
     "migration": {
-      "id": "U5y1wpg7lsc",
-      "title": "Kosovo Crisis: Refugees Flee, Leaders Meet, Peace Deadline Looms! #shorts",
-      "channel": "The Enli Hamzai Podcast",
-      "publishedAt": "2026-10-22T17:41:58Z",
-      "durationSeconds": 94,
+      "id": "QYivST0XpW0",
+      "title": "MASSIVE migrant caravan heads toward US border as midterms HEAT UP #shorts #us #immigration",
+      "channel": "Fox News",
+      "publishedAt": "2026-10-22T20:45:24Z",
+      "durationSeconds": 67,
       "shortsHint": true
     },
     "wealth": {
-      "id": "-mjLk9B0ro0",
+      "id": "9WHRF4hdwMQ",
       "title": "Power of money💪🏻💸🛥️ #mindset #success #fact #viral #billionaire #billionaire #shorts #luxurylif",
       "channel": "Fact Zone",
-      "publishedAt": "2026-10-26T13:02:21Z",
-      "durationSeconds": 36,
+      "publishedAt": "2026-10-26T13:01:20Z",
+      "durationSeconds": 19,
       "shortsHint": true
     }
   },
   "recentlyShown": {
     "war": [
+      "1YdzbOis2TU",
       "B0eJVb3NGIg"
     ],
     "animals": [
       "ZIs_ho8kFtI"
     ],
     "protests": [
+      "SAhIgxRqBT0",
       "_2UK-iZ1kTs"
     ],
     "climate": [
+      "EHZWCOhfWQk",
       "DRBiBZgwcS0"
     ],
     "migration": [
+      "QYivST0XpW0",
       "U5y1wpg7lsc"
     ],
     "wealth": [
+      "9WHRF4hdwMQ",
       "-mjLk9B0ro0"
     ]
   },
   "lastChangedAt": {
-    "war": "2026-10-26T19:10:29.364937+00:00",
+    "war": "2026-10-26T19:22:00.130154+00:00",
     "animals": "2026-10-26T08:07:23.259310+00:00",
-    "protests": "2026-10-26T19:10:29.364937+00:00",
-    "climate": "2026-10-26T19:10:29.364937+00:00",
-    "migration": "2026-10-26T19:10:29.364937+00:00",
-    "wealth": "2026-10-26T19:10:29.364937+00:00"
+    "protests": "2026-10-26T19:22:00.130154+00:00",
+    "climate": "2026-10-26T19:22:00.130154+00:00",
+    "migration": "2026-10-26T19:22:00.130154+00:00",
+    "wealth": "2026-10-26T19:22:00.130154+00:00"
   }
 }
