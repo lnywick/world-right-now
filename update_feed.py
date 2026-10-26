@@ -28,16 +28,16 @@ MAX_AGE_DAYS = 14
 MIN_SECONDS = 12
 MAX_SECONDS = 180
 
-# Three searches at most for each category; 18 search requests/day maximum.
-# The second and third query are only used when necessary.
+# Three searches for each category; 18 searches/day = 1,800 search quota units.
+# Searching each query gives categories with fewer matches more options.
 TOPICS = {
     "war": {
         "queries": ["war civilians news shorts", "ukraine gaza sudan war footage shorts", "war conflict breaking news #shorts"],
         "relevance": r"\b(war|conflict|airstrike|bombing|missile|gaza|ukraine|sudan|ceasefire|soldiers|military|civilians?|attacks?)\b",
     },
     "animals": {
-        "queries": ["animal cruelty investigation shorts", "factory farming animal welfare #shorts", "wildlife poaching rescue news shorts"],
-        "relevance": r"\b(animals?|cruelty|slaughter|factory farm|farming|livestock|cattle|pigs?|chickens?|wildlife|poaching|rescue|welfare|abuse)\b",
+        "queries": ["animal cruelty exposed news shorts", "factory farming animal welfare investigation shorts", "animal abuse wildlife poaching news #shorts"],
+        "relevance": r"\b(animals?|cruelty|slaughter|factory farm|farming|livestock|cattle|pigs?|chickens?|wildlife|poaching|welfare|abuse|neglect|suffering|animal testing)\b",
     },
     "protests": {
         "queries": ["protest march demonstration news shorts", "police protesters breaking news #shorts", "mass protest strike news short"],
@@ -66,6 +66,15 @@ BLOCK = re.compile(
 SHORT_HINT = re.compile(r"(?:#shorts\b|\bshorts\b|#reels\b)", re.I)
 NEWS_HINT = re.compile(r"\b(news|reuters|associated press|ap news|bbc|dw|al jazeera|france 24|guardian|abc news|sky news)\b", re.I)
 ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+ANIMAL_HARM = re.compile(
+    r"\b(cruelty|abuse|neglect|suffering|slaughter|factory farm|animal testing|"
+    r"poach(?:ing|ers?)?|injured|trafficking|fur farm|animal welfare|"
+    r"livestock|meat industry|dairy farm|chicken farm|torture)\b", re.I
+)
+ANIMAL_SUBJECT = re.compile(
+    r"\b(animals?|cattle|cows?|pigs?|chickens?|sheep|wildlife|dogs?|cats?|"
+    r"birds?|elephants?|horses?|dolphins?|whales?|livestock)\b", re.I
+)
 
 
 def youtube_api(endpoint: str, params: dict) -> dict:
@@ -102,15 +111,20 @@ def published_age_hours(value: str, now: dt.datetime) -> float:
         return float("inf")
 
 
-def load_previous() -> dict:
+def load_state() -> dict:
     if not OUT.exists():
-        return {}
+        return {"videos": {}, "recentlyShown": {}, "lastChangedAt": {}}
     try:
         raw = json.loads(OUT.read_text(encoding="utf-8"))
-        return raw.get("videos", {}) if isinstance(raw.get("videos"), dict) else {}
+        if not isinstance(raw, dict):
+            raise ValueError("Top-level JSON must be an object")
+        for key in ("videos", "recentlyShown", "lastChangedAt"):
+            if not isinstance(raw.get(key), dict):
+                raw[key] = {}
+        return raw
     except (OSError, ValueError, TypeError) as exc:
         print(f"WARNING: Existing videos.json cannot be parsed: {exc}")
-        return {}
+        return {"videos": {}, "recentlyShown": {}, "lastChangedAt": {}}
 
 
 def search(query: str, now: dt.datetime) -> list[str]:
@@ -172,15 +186,24 @@ def rank(video: dict, topic: dict, now: dt.datetime) -> tuple[float, dict] | Non
     description_hits = len(rx.findall(description[:500]))
     if title_hits == 0 and description_hits < 2:
         return None
+    # Avoid unrelated police/training stories or cute pet videos for animal suffering.
+    # Metadata alone cannot verify what the footage actually shows.
+    if topic is TOPICS["animals"]:
+        combined = title + " " + description[:500]
+        if not ANIMAL_SUBJECT.search(combined) or not ANIMAL_HARM.search(combined):
+            return None
+        if re.search(r"law enforcement|police training|crime investigations", title, re.I):
+            return None
 
     age = published_age_hours(snippet.get("publishedAt", ""), now)
     if age > MAX_AGE_DAYS * 24:
         return None
-    short_bonus = 9 if SHORT_HINT.search(title + " " + description[:150]) else 0
-    news_bonus = 4 if NEWS_HINT.search(channel) else 0
-    title_bonus = 5 if title_hits else 0
-    freshness = 6 * max(0, 1 - age / (MAX_AGE_DAYS * 24))
-    score = short_bonus + news_bonus + title_bonus + freshness
+    short_bonus = 2 if SHORT_HINT.search(title + " " + description[:150]) else 0
+    news_bonus = 3 if NEWS_HINT.search(channel) else 0
+    title_bonus = 4 if title_hits else 0
+    harm_bonus = 5 if topic is TOPICS["animals"] and ANIMAL_HARM.search(title) else 0
+    freshness = 20 * max(0, 1 - age / (MAX_AGE_DAYS * 24))
+    score = short_bonus + news_bonus + title_bonus + harm_bonus + freshness
     return score, {
         "id": video_id,
         "title": title,
@@ -191,7 +214,10 @@ def rank(video: dict, topic: dict, now: dt.datetime) -> tuple[float, dict] | Non
     }
 
 
-def choose_for_topic(topic: dict, now: dt.datetime, used: set[str]) -> tuple[dict | None, int]:
+def choose_for_topic(
+    topic: dict, now: dt.datetime, used: set[str],
+    previous_id: str = "", recently_shown: list[str] | None = None,
+) -> tuple[dict | None, int]:
     candidates: dict[str, tuple[float, dict]] = {}
     calls = 0
     for query in topic["queries"]:
@@ -205,12 +231,21 @@ def choose_for_topic(topic: dict, now: dt.datetime, used: set[str]) -> tuple[dic
                     old = candidates.get(video["id"])
                     if old is None or score > old[0]:
                         candidates[video["id"]] = (score, video)
-        # Stop as soon as a decent pool is found: saves daily API calls.
-        if len(candidates) >= 4:
-            break
+
     if not candidates:
         return None, calls
-    return max(candidates.values(), key=lambda pair: pair[0])[1], calls
+
+    pool = list(candidates.values())
+    history = set(recently_shown or [])
+    # First prefer unseen videos, then any video different from yesterday's.
+    unseen = [x for x in pool if x[1]["id"] != previous_id and x[1]["id"] not in history]
+    different = [x for x in pool if x[1]["id"] != previous_id]
+    pool = unseen or different or pool
+    # Avoid resurfacing an old 14-day clip when a recent alternative exists.
+    recent = [x for x in pool if published_age_hours(x[1]["publishedAt"], now) <= 7 * 24]
+    if recent:
+        pool = recent
+    return max(pool, key=lambda x: x[0])[1], calls
 
 
 def main() -> None:
@@ -218,34 +253,59 @@ def main() -> None:
         raise RuntimeError("Missing YOUTUBE_API_KEY GitHub repository secret")
 
     now = dt.datetime.now(dt.timezone.utc)
-    previous = load_previous()
+    state = load_state()
+    previous = state["videos"]
+    recent_history = state["recentlyShown"]
+    last_changed = state["lastChangedAt"]
     selected: dict[str, dict | None] = {}
+    new_history: dict[str, list[str]] = {}
+    new_changed: dict[str, str | None] = {}
     used: set[str] = set()
     search_calls = 0
+    changed_count = 0
 
     for key, topic in TOPICS.items():
-        chosen, calls = choose_for_topic(topic, now, used)
+        old = previous.get(key)
+        old_id = str(old.get("id", "")) if isinstance(old, dict) else ""
+        history = recent_history.get(key, [])
+        if not isinstance(history, list):
+            history = []
+        history = [x for x in history if isinstance(x, str) and ID_RE.fullmatch(x)]
+        chosen, calls = choose_for_topic(topic, now, used, old_id, history)
         search_calls += calls
-        if chosen:
-            selected[key] = chosen
-            used.add(chosen["id"])
-            print(f"{key}: NEW {chosen['id']} | {chosen['channel']} | {chosen['durationSeconds']}s")
-        else:
-            old = previous.get(key)
-            if isinstance(old, dict) and ID_RE.fullmatch(str(old.get("id", ""))) and old["id"] not in used:
-                selected[key] = old
-                used.add(old["id"])
-                print(f"{key}: previous clip kept ({old['id']}); no matching new clip")
+        if chosen is None and isinstance(old, dict) and ID_RE.fullmatch(old_id) and old_id not in used:
+            chosen = old
+            print(f"{key}: NO ALTERNATIVE FOUND; keeping {old_id}")
+        elif chosen is None:
+            print(f"{key}: NO CLIP AVAILABLE")
+
+        selected[key] = chosen
+        if chosen is not None:
+            chosen_id = chosen["id"]
+            used.add(chosen_id)
+            if chosen_id != old_id:
+                changed_count += 1
+                new_changed[key] = now.isoformat()
+                print(f"{key}: CHANGED {old_id or '-'} -> {chosen_id} | {chosen['title'][:80]}")
             else:
-                selected[key] = None
-                print(f"{key}: NO CLIP (none found, no previous clip to preserve)")
+                new_changed[key] = last_changed.get(key) or state.get("updatedAt") or now.isoformat()
+                print(f"{key}: UNCHANGED ({chosen_id}); no suitable different video found")
+            new_history[key] = ([chosen_id] + [x for x in history if x != chosen_id])[:6]
+        else:
+            new_history[key] = history[:6]
+            new_changed[key] = last_changed.get(key)
 
     count = sum(isinstance(x, dict) for x in selected.values())
-    print(f"RESULT: {count}/6 categories filled; {search_calls} search calls this run")
+    print(f"RESULT: {count}/6 categories filled, {changed_count} changed; {search_calls} searches")
     if count == 0:
         raise RuntimeError("No videos found. Leaving existing videos.json unchanged.")
 
-    output = {"updatedAt": now.isoformat(), "videos": selected}
+    output = {
+        "updatedAt": now.isoformat(),
+        "videos": selected,
+        "recentlyShown": new_history,
+        "lastChangedAt": new_changed,
+    }
     temp = OUT.with_name("videos.json.tmp")
     temp.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temp.replace(OUT)
@@ -259,3 +319,4 @@ if __name__ == "__main__":
         # Fail GitHub Actions visibly rather than silently publishing stale data.
         print(f"ERROR: {exc}", file=sys.stderr)
         sys.exit(1)
+
