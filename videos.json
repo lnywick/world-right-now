@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-26T19:24:10.439612+00:00",
+  "updatedAt": "2026-10-27T08:02:09.919578+00:00",
   "videos": {
     "war": {
-      "id": "gNgM9DyR3FY",
-      "title": "🚨 Russia-Ukraine War Update: जेलेंस्की ने रखीं नई शर्तें! 😱 क्या खत्म होगी जंग? #Shorts",
-      "channel": "News hi News",
-      "publishedAt": "2026-10-26T00:30:39Z",
-      "durationSeconds": 18,
+      "id": "53CwEWo6iq4",
+      "title": "আজকের আন্তর্জাতিক খবর | Russia Ukraine News #shorts #russiaukrainewar #worldnews",
+      "channel": "Jomuna News",
+      "publishedAt": "2026-10-25T17:00:17Z",
+      "durationSeconds": 60,
       "shortsHint": true
     },
     "animals": {
@@ -18,40 +18,41 @@
       "shortsHint": true
     },
     "protests": {
-      "id": "nZbFClRFtp0",
-      "title": "France Burns: Macron Mobilizes Police as Riots Paralyze Cities #Shorts",
-      "channel": "PND News",
-      "publishedAt": "2026-10-26T03:00:08Z",
-      "durationSeconds": 82,
+      "id": "WJ0xecoNSB0",
+      "title": "\"BJP के लोग और Delhi Police डरी हुई है\"- Uday Bhanu | #shorts #viral #congress",
+      "channel": "News 24",
+      "publishedAt": "2026-10-27T07:52:11Z",
+      "durationSeconds": 31,
       "shortsHint": true
     },
     "climate": {
-      "id": "RfIkSPbglGw",
-      "title": "Climate Change Is Serious—Why We Can’t Look Away 🌍🔥 #climatetruth #ecologicalbreakdown #short",
-      "channel": "IJ News ",
-      "publishedAt": "2026-10-25T03:51:12Z",
-      "durationSeconds": 24,
-      "shortsHint": false
+      "id": "ozizTN-_tWo",
+      "title": "Disaster Management Preparedness Under NDMA Act | UPSC GS2 #Shorts",
+      "channel": "Daily News Teller",
+      "publishedAt": "2026-10-26T10:47:25Z",
+      "durationSeconds": 37,
+      "shortsHint": true
     },
     "migration": {
-      "id": "h7qkMtg8y8o",
-      "title": "Migrant Caravan Heads Towards US Border! Hundreds Continue Journey Through Mexico",
-      "channel": "The Daily Guardian",
-      "publishedAt": "2026-10-21T14:11:21Z",
-      "durationSeconds": 68,
-      "shortsHint": false
+      "id": "7QFZ0FtQaEs",
+      "title": "France Immigration Crackdown! 🇫🇷 EU Plans New Deportation Rules 😱#shorts #shortfeed #viralshorts",
+      "channel": "EuroFlash News 🌎",
+      "publishedAt": "2026-10-27T05:30:04Z",
+      "durationSeconds": 26,
+      "shortsHint": true
     },
     "wealth": {
-      "id": "lai3w6BWVX0",
-      "title": "Power of money💪🏻💸🛥️ #mindset #success #fact #viral #billionaire #billionaire #shorts #luxurylif",
-      "channel": "Fact Zone",
-      "publishedAt": "2026-10-26T13:00:24Z",
-      "durationSeconds": 15,
+      "id": "1OnqN_nXYZA",
+      "title": "Rich People Don't Give for Free 👀 #billionaires #shorts",
+      "channel": "INFINITY World",
+      "publishedAt": "2026-10-26T23:30:07Z",
+      "durationSeconds": 33,
       "shortsHint": true
     }
   },
   "recentlyShown": {
     "war": [
+      "53CwEWo6iq4",
       "gNgM9DyR3FY",
       "1YdzbOis2TU",
       "B0eJVb3NGIg"
@@ -60,32 +61,36 @@
       "ZIs_ho8kFtI"
     ],
     "protests": [
+      "WJ0xecoNSB0",
       "nZbFClRFtp0",
       "SAhIgxRqBT0",
       "_2UK-iZ1kTs"
     ],
     "climate": [
+      "ozizTN-_tWo",
       "RfIkSPbglGw",
       "EHZWCOhfWQk",
       "DRBiBZgwcS0"
     ],
     "migration": [
+      "7QFZ0FtQaEs",
       "h7qkMtg8y8o",
       "QYivST0XpW0",
       "U5y1wpg7lsc"
     ],
     "wealth": [
+      "1OnqN_nXYZA",
       "lai3w6BWVX0",
       "9WHRF4hdwMQ",
       "-mjLk9B0ro0"
     ]
   },
   "lastChangedAt": {
-    "war": "2026-10-26T19:24:10.439612+00:00",
+    "war": "2026-10-27T08:02:09.919578+00:00",
     "animals": "2026-10-26T08:07:23.259310+00:00",
-    "protests": "2026-10-26T19:24:10.439612+00:00",
-    "climate": "2026-10-26T19:24:10.439612+00:00",
-    "migration": "2026-10-26T19:24:10.439612+00:00",
-    "wealth": "2026-10-26T19:24:10.439612+00:00"
+    "protests": "2026-10-27T08:02:09.919578+00:00",
+    "climate": "2026-10-27T08:02:09.919578+00:00",
+    "migration": "2026-10-27T08:02:09.919578+00:00",
+    "wealth": "2026-10-27T08:02:09.919578+00:00"
   }
 }
