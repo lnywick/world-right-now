@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-27T08:02:09.919578+00:00",
+  "updatedAt": "2026-10-28T08:13:03.076370+00:00",
   "videos": {
     "war": {
-      "id": "53CwEWo6iq4",
-      "title": "আজকের আন্তর্জাতিক খবর | Russia Ukraine News #shorts #russiaukrainewar #worldnews",
-      "channel": "Jomuna News",
-      "publishedAt": "2026-10-25T17:00:17Z",
-      "durationSeconds": 60,
+      "id": "lQZ1VdfKOjs",
+      "title": "Iran US War Update 🇺🇸🇮🇷 ईरान में कहाँ-कहाँ हो सकते हैं हमले? 😱 | Breaking News #Shorts",
+      "channel": "News hi News",
+      "publishedAt": "2026-10-28T00:30:02Z",
+      "durationSeconds": 15,
       "shortsHint": true
     },
     "animals": {
@@ -18,40 +18,41 @@
       "shortsHint": true
     },
     "protests": {
-      "id": "WJ0xecoNSB0",
-      "title": "\"BJP के लोग और Delhi Police डरी हुई है\"- Uday Bhanu | #shorts #viral #congress",
-      "channel": "News 24",
-      "publishedAt": "2026-10-27T07:52:11Z",
-      "durationSeconds": 31,
+      "id": "rzkv9RFryMw",
+      "title": "Thane news | Shiv sena UBT Protest | Maharashtra news | Pradeep Purnekar | Thane Police #shorts",
+      "channel": "Ok News",
+      "publishedAt": "2026-10-28T07:56:12Z",
+      "durationSeconds": 13,
       "shortsHint": true
     },
     "climate": {
-      "id": "ozizTN-_tWo",
-      "title": "Disaster Management Preparedness Under NDMA Act | UPSC GS2 #Shorts",
+      "id": "GE5eLQqhWNE",
+      "title": "Cyclone Disaster Management & Institutional Response | UPSC GS3 #Shorts",
       "channel": "Daily News Teller",
-      "publishedAt": "2026-10-26T10:47:25Z",
-      "durationSeconds": 37,
+      "publishedAt": "2026-10-28T02:17:31Z",
+      "durationSeconds": 38,
       "shortsHint": true
     },
     "migration": {
-      "id": "7QFZ0FtQaEs",
-      "title": "France Immigration Crackdown! 🇫🇷 EU Plans New Deportation Rules 😱#shorts #shortfeed #viralshorts",
-      "channel": "EuroFlash News 🌎",
-      "publishedAt": "2026-10-27T05:30:04Z",
-      "durationSeconds": 26,
+      "id": "FFar5UPZn8U",
+      "title": "The 180-Day Asylum Work Rule: How Migrants Survive Without Permits #shorts",
+      "channel": "Border Reality",
+      "publishedAt": "2026-10-27T15:13:07Z",
+      "durationSeconds": 47,
       "shortsHint": true
     },
     "wealth": {
-      "id": "1OnqN_nXYZA",
-      "title": "Rich People Don't Give for Free 👀 #billionaires #shorts",
-      "channel": "INFINITY World",
-      "publishedAt": "2026-10-26T23:30:07Z",
-      "durationSeconds": 33,
+      "id": "A5SuUO6xLqk",
+      "title": "Elon Musk Is NOT a Billionaire… 🤯👑 #geography#shorts",
+      "channel": "MapVeyron",
+      "publishedAt": "2026-10-27T21:45:22Z",
+      "durationSeconds": 36,
       "shortsHint": true
     }
   },
   "recentlyShown": {
     "war": [
+      "lQZ1VdfKOjs",
       "53CwEWo6iq4",
       "gNgM9DyR3FY",
       "1YdzbOis2TU",
@@ -61,24 +62,28 @@
       "ZIs_ho8kFtI"
     ],
     "protests": [
+      "rzkv9RFryMw",
       "WJ0xecoNSB0",
       "nZbFClRFtp0",
       "SAhIgxRqBT0",
       "_2UK-iZ1kTs"
     ],
     "climate": [
+      "GE5eLQqhWNE",
       "ozizTN-_tWo",
       "RfIkSPbglGw",
       "EHZWCOhfWQk",
       "DRBiBZgwcS0"
     ],
     "migration": [
+      "FFar5UPZn8U",
       "7QFZ0FtQaEs",
       "h7qkMtg8y8o",
       "QYivST0XpW0",
       "U5y1wpg7lsc"
     ],
     "wealth": [
+      "A5SuUO6xLqk",
       "1OnqN_nXYZA",
       "lai3w6BWVX0",
       "9WHRF4hdwMQ",
@@ -86,11 +91,11 @@
     ]
   },
   "lastChangedAt": {
-    "war": "2026-10-27T08:02:09.919578+00:00",
+    "war": "2026-10-28T08:13:03.076370+00:00",
     "animals": "2026-10-26T08:07:23.259310+00:00",
-    "protests": "2026-10-27T08:02:09.919578+00:00",
-    "climate": "2026-10-27T08:02:09.919578+00:00",
-    "migration": "2026-10-27T08:02:09.919578+00:00",
-    "wealth": "2026-10-27T08:02:09.919578+00:00"
+    "protests": "2026-10-28T08:13:03.076370+00:00",
+    "climate": "2026-10-28T08:13:03.076370+00:00",
+    "migration": "2026-10-28T08:13:03.076370+00:00",
+    "wealth": "2026-10-28T08:13:03.076370+00:00"
   }
 }
