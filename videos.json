@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-28T08:13:03.076370+00:00",
+  "updatedAt": "2026-10-29T08:15:03.808299+00:00",
   "videos": {
     "war": {
-      "id": "lQZ1VdfKOjs",
-      "title": "Iran US War Update 🇺🇸🇮🇷 ईरान में कहाँ-कहाँ हो सकते हैं हमले? 😱 | Breaking News #Shorts",
-      "channel": "News hi News",
-      "publishedAt": "2026-10-28T00:30:02Z",
-      "durationSeconds": 15,
+      "id": "2LtPcGYtde4",
+      "title": "Gaza Residents Monitor Israeli Election Amid Ongoing Conflict #Shorts",
+      "channel": "Nowly News",
+      "publishedAt": "2026-10-28T16:02:27Z",
+      "durationSeconds": 35,
       "shortsHint": true
     },
     "animals": {
@@ -18,40 +18,41 @@
       "shortsHint": true
     },
     "protests": {
-      "id": "rzkv9RFryMw",
-      "title": "Thane news | Shiv sena UBT Protest | Maharashtra news | Pradeep Purnekar | Thane Police #shorts",
-      "channel": "Ok News",
-      "publishedAt": "2026-10-28T07:56:12Z",
-      "durationSeconds": 13,
+      "id": "-_GwBWZ62Gg",
+      "title": "Jamia News: दिल्ली पुलिस का अलर्ट, गैरकानूनी जमावड़े पर रोक | Protest  News #shorts #ytshorts",
+      "channel": "Local 7 News",
+      "publishedAt": "2026-10-27T11:00:34Z",
+      "durationSeconds": 19,
       "shortsHint": true
     },
     "climate": {
-      "id": "GE5eLQqhWNE",
-      "title": "Cyclone Disaster Management & Institutional Response | UPSC GS3 #Shorts",
+      "id": "mna4C8F_Be8",
+      "title": "Cyclone Preparedness and Vulnerability Reduction | UPSC GS2 #Shorts",
       "channel": "Daily News Teller",
-      "publishedAt": "2026-10-28T02:17:31Z",
-      "durationSeconds": 38,
+      "publishedAt": "2026-10-28T20:17:35Z",
+      "durationSeconds": 39,
       "shortsHint": true
     },
     "migration": {
-      "id": "FFar5UPZn8U",
-      "title": "The 180-Day Asylum Work Rule: How Migrants Survive Without Permits #shorts",
-      "channel": "Border Reality",
-      "publishedAt": "2026-10-27T15:13:07Z",
-      "durationSeconds": 47,
+      "id": "J02x0WHmYAU",
+      "title": "Middle East War: The Hidden Impact on Refugees’ Mental Health #shorts",
+      "channel": "Rextech Marketing Agency",
+      "publishedAt": "2026-10-29T06:03:19Z",
+      "durationSeconds": 24,
       "shortsHint": true
     },
     "wealth": {
-      "id": "A5SuUO6xLqk",
-      "title": "Elon Musk Is NOT a Billionaire… 🤯👑 #geography#shorts",
-      "channel": "MapVeyron",
-      "publishedAt": "2026-10-27T21:45:22Z",
-      "durationSeconds": 36,
+      "id": "6Dl9fJert-o",
+      "title": "The 0% Billionaire Debt Engine 📈 #shorts",
+      "channel": "The Billionaire Whale",
+      "publishedAt": "2026-10-28T16:30:16Z",
+      "durationSeconds": 42,
       "shortsHint": true
     }
   },
   "recentlyShown": {
     "war": [
+      "2LtPcGYtde4",
       "lQZ1VdfKOjs",
       "53CwEWo6iq4",
       "gNgM9DyR3FY",
@@ -62,6 +63,7 @@
       "ZIs_ho8kFtI"
     ],
     "protests": [
+      "-_GwBWZ62Gg",
       "rzkv9RFryMw",
       "WJ0xecoNSB0",
       "nZbFClRFtp0",
@@ -69,6 +71,7 @@
       "_2UK-iZ1kTs"
     ],
     "climate": [
+      "mna4C8F_Be8",
       "GE5eLQqhWNE",
       "ozizTN-_tWo",
       "RfIkSPbglGw",
@@ -76,6 +79,7 @@
       "DRBiBZgwcS0"
     ],
     "migration": [
+      "J02x0WHmYAU",
       "FFar5UPZn8U",
       "7QFZ0FtQaEs",
       "h7qkMtg8y8o",
@@ -83,6 +87,7 @@
       "U5y1wpg7lsc"
     ],
     "wealth": [
+      "6Dl9fJert-o",
       "A5SuUO6xLqk",
       "1OnqN_nXYZA",
       "lai3w6BWVX0",
@@ -91,11 +96,11 @@
     ]
   },
   "lastChangedAt": {
-    "war": "2026-10-28T08:13:03.076370+00:00",
+    "war": "2026-10-29T08:15:03.808299+00:00",
     "animals": "2026-10-26T08:07:23.259310+00:00",
-    "protests": "2026-10-28T08:13:03.076370+00:00",
-    "climate": "2026-10-28T08:13:03.076370+00:00",
-    "migration": "2026-10-28T08:13:03.076370+00:00",
-    "wealth": "2026-10-28T08:13:03.076370+00:00"
+    "protests": "2026-10-29T08:15:03.808299+00:00",
+    "climate": "2026-10-29T08:15:03.808299+00:00",
+    "migration": "2026-10-29T08:15:03.808299+00:00",
+    "wealth": "2026-10-29T08:15:03.808299+00:00"
   }
 }
