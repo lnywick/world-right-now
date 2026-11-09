@@ -368,6 +368,20 @@ def choose_candidates(
         if item is not None:
             confirmed.append(item)
     print(f"{key}: verified {len(confirmed)} portrait videos from {probes} format probes")
+    
+    # Fallback when vertical verification fails
+    if not confirmed:
+        likely_shorts = [
+            item for item in ordered
+            if item.get("shortsHint")
+        ]
+        confirmed = [
+            {**item, "verticalVerified": False}
+            for item in likely_shorts[:MAX_ALTERNATIVES + 1]
+        ]
+        if confirmed:
+            print(f"{key}: using Shorts fallback")
+
     return confirmed, calls
 
 
