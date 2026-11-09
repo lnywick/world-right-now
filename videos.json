@@ -1,23 +1,348 @@
 {
-  "updatedAt": "2026-11-09T17:46:16.865071+00:00",
+  "updatedAt": "2026-11-09T19:13:13.016812+00:00",
   "videos": {
-    "war": null,
-    "animals": null,
-    "protests": null,
-    "climate": null,
-    "migration": null,
-    "wealth": null
+    "war": {
+      "id": "28oajIUHZaI",
+      "title": "Will anyone help Sudan's civilians?",
+      "channel": "Echoes of Conflict",
+      "publishedAt": "2026-11-06T18:30:31Z",
+      "durationSeconds": 25,
+      "shortsHint": true,
+      "verticalVerified": false
+    },
+    "animals": {
+      "id": "s7bJMizvB6s",
+      "title": "Dog Rescue Shot Pit Bull, Faked Cancer For Cash 😳 #Shorts",
+      "channel": "Shorts News All Time",
+      "publishedAt": "2026-11-06T18:30:34Z",
+      "durationSeconds": 94,
+      "shortsHint": true,
+      "verticalVerified": false
+    },
+    "protests": {
+      "id": "vWt0OtNWKok",
+      "title": "Previously selected video",
+      "channel": "",
+      "publishedAt": "",
+      "durationSeconds": 0,
+      "shortsHint": false,
+      "verticalVerified": false
+    },
+    "climate": {
+      "id": "ylq80hhgGTg",
+      "title": "Previously selected video",
+      "channel": "",
+      "publishedAt": "",
+      "durationSeconds": 0,
+      "shortsHint": false,
+      "verticalVerified": false
+    },
+    "migration": {
+      "id": "ZKRenwjmA-w",
+      "title": "Previously selected video",
+      "channel": "",
+      "publishedAt": "",
+      "durationSeconds": 0,
+      "shortsHint": false,
+      "verticalVerified": false
+    },
+    "wealth": {
+      "id": "8uGMCnPwhqg",
+      "title": "Previously selected video",
+      "channel": "",
+      "publishedAt": "",
+      "durationSeconds": 0,
+      "shortsHint": false,
+      "verticalVerified": false
+    }
   },
   "alternatives": {
-    "war": [],
-    "animals": [],
-    "protests": [],
-    "climate": [],
-    "migration": [],
-    "wealth": []
+    "war": [
+      {
+        "id": "JBHDoOWG0nc",
+        "title": "Kyiv Bombing Centre Kills Civilians #Shorts",
+        "channel": "MacroPrice",
+        "publishedAt": "2026-11-02T23:32:46Z",
+        "durationSeconds": 25,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "SiY8TIYv7KU",
+        "title": "🌍 Russian strikes have wounded nine civilians and severely damaged | Geopolitics Nov 07 #Shorts",
+        "channel": "Last Day in Geopolitics",
+        "publishedAt": "2026-11-07T16:58:04Z",
+        "durationSeconds": 53,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "w4PYXQRi4Fw",
+        "title": "UN: Drones Now Cause Most Civilian Deaths in Sudan's War #Shorts",
+        "channel": "Ember Dispatch",
+        "publishedAt": "2026-10-25T19:27:26Z",
+        "durationSeconds": 39,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "AAWdt4g2k_M",
+        "title": "25,000 Lives Lost a Month: The War’s Devastating Human Cost #shorts",
+        "channel": "The Collective Minds Podcast",
+        "publishedAt": "2026-11-06T03:54:24Z",
+        "durationSeconds": 16,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "2MMzohK9nhw",
+        "title": "Scott Jennings Explodes in Heated CNN Gaza Debate ☠#shorts",
+        "channel": "The American Stream ",
+        "publishedAt": "2026-11-03T01:36:32Z",
+        "durationSeconds": 55,
+        "shortsHint": true,
+        "verticalVerified": false
+      }
+    ],
+    "animals": [
+      {
+        "id": "kPcjKFEcF6o",
+        "title": "JAGRITI MISHRA | ₹7 MILLION LOST TO SAVE ANIMALS! 😭🐾 #shorts #animals #viralvideo #dog #animallovers",
+        "channel": "Amit Kumar ",
+        "publishedAt": "2026-10-27T08:57:41Z",
+        "durationSeconds": 50,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "6nJpxehsX7w",
+        "title": "Animal Rescue: What Happens After a Large-Scale Seizure? #shorts",
+        "channel": "Behind the Thin Blue Line",
+        "publishedAt": "2026-10-23T10:58:40Z",
+        "durationSeconds": 87,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "4libXg-hSWQ",
+        "title": "जागृति मिश्रा का डॉग शेल्टर तोड़ दिया! 😱 बेजुबान कुत्तों का क्या होगा? 💔 #Shorts",
+        "channel": "Maikal Zoryn",
+        "publishedAt": "2026-10-26T04:31:30Z",
+        "durationSeconds": 37,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "NrJW8SmdZcQ",
+        "title": "Police rescue dozens of animals from Fulton home #shorts",
+        "channel": "WSB-TV",
+        "publishedAt": "2026-10-06T19:09:33Z",
+        "durationSeconds": 131,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "SkPoChbiCSI",
+        "title": "घूसखोरों ने तुड़वावाई गौशाला! 😢",
+        "channel": "Rishab's Rarety",
+        "publishedAt": "2026-10-24T14:00:11Z",
+        "durationSeconds": 37,
+        "shortsHint": false,
+        "verticalVerified": false
+      }
+    ],
+    "protests": [
+      {
+        "id": "2Dtb2yoNLnk",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "vSkddRFpTa4",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "BvHRoiztUJU",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "pd-GvxRaBxg",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "j7AUX3DwoDg",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      }
+    ],
+    "climate": [
+      {
+        "id": "ISO3qSmDfk0",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "anXtjkqVoKo",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "UqoqbodJCm4",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "hl2nWbVxYBk",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "wIuzLA6Nb0s",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      }
+    ],
+    "migration": [
+      {
+        "id": "LfZrRECJRR8",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "j8C9A1lp_xQ",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "SMPQMYWvSKU",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "pr_HXyyBb-k",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "yVvsoPpHT5Q",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      }
+    ],
+    "wealth": [
+      {
+        "id": "nUu-wxfgFXU",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "RBjjbdwD0_E",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "zI6U9zAmcFg",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "gl7MFlcW-eA",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "8lJqMCkiHJo",
+        "title": "Previously selected video",
+        "channel": "",
+        "publishedAt": "",
+        "durationSeconds": 0,
+        "shortsHint": false,
+        "verticalVerified": false
+      }
+    ]
   },
   "recentlyShown": {
     "war": [
+      "28oajIUHZaI",
       "jBFMRnBJ2HE",
       "S8pry2iF_B8",
       "o-4yAch72jI",
@@ -27,6 +352,7 @@
       "4Rmp7vr3ZME"
     ],
     "animals": [
+      "s7bJMizvB6s",
       "fJO57YrP-v8",
       "ZIs_ho8kFtI"
     ],
@@ -68,13 +394,14 @@
     ]
   },
   "lastChangedAt": {
-    "war": "2026-11-08T18:37:00.344270+00:00",
-    "animals": "2026-11-08T18:37:00.344270+00:00",
-    "protests": "2026-11-08T18:37:00.344270+00:00",
-    "climate": "2026-11-08T18:37:00.344270+00:00",
-    "migration": "2026-11-08T18:37:00.344270+00:00",
-    "wealth": "2026-11-08T18:37:00.344270+00:00"
+    "war": "2026-11-09T19:13:13.016812+00:00",
+    "animals": "2026-11-09T19:13:13.016812+00:00",
+    "protests": "2026-11-09T19:13:13.016812+00:00",
+    "climate": "2026-11-09T19:13:13.016812+00:00",
+    "migration": "2026-11-09T19:13:13.016812+00:00",
+    "wealth": "2026-11-09T19:13:13.016812+00:00"
   },
   "blockedIds": {},
-  "formatPolicy": "strict-portrait-metadata-only"
+  "formatPolicy": "shorts-preferred-unverified",
+  "feedStatus": "saved-fallback"
 }
