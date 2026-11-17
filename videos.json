@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-16T09:55:31.111572+00:00",
+  "updatedAt": "2026-11-17T08:31:20.067716+00:00",
   "videos": {
     "war": {
-      "id": "lakVIl43eUw",
-      "title": "🪖 Battlefield Update | Ukraine Says Starshield Disruptions Are Back As U.S. #Shorts",
-      "channel": "Modern Conflicts",
-      "publishedAt": "2026-11-12T22:16:44Z",
-      "durationSeconds": 44,
+      "id": "CK4m7n_vyHA",
+      "title": "300,000 Flee Yemen's New War: The Iran War's Hidden Front #shorts",
+      "channel": "Aura Briefing",
+      "publishedAt": "2026-11-02T14:12:55Z",
+      "durationSeconds": 58,
       "shortsHint": true,
       "verticalVerified": false
     },
@@ -20,29 +20,29 @@
       "verticalVerified": false
     },
     "protests": {
-      "id": "jR3-BaOnRTU",
-      "title": "🔥 Paris Erupts: Thousands Rally Against \"Licence to Kill\" Police Bill2 #shorts",
-      "channel": "AFFO-15",
-      "publishedAt": "2026-11-15T11:45:10Z",
-      "durationSeconds": 33,
+      "id": "IocvhXjgMaw",
+      "title": "Women protests in poland ⚡ europe riots",
+      "channel": "FUNthere 🩳",
+      "publishedAt": "2026-10-27T21:54:37Z",
+      "durationSeconds": 60,
       "shortsHint": true,
       "verticalVerified": false
     },
     "climate": {
-      "id": "zRznqSwmNAY",
-      "title": "How El Niño triggers extreme droughts & heatwaves #Shorts #ElNino #Drought #Wildfire #Climate",
-      "channel": "allweird",
-      "publishedAt": "2026-10-05T01:06:12Z",
-      "durationSeconds": 11,
+      "id": "bMKuFggVTgY",
+      "title": "Storm Charles causes floods and flight cancellations across southern Europe",
+      "channel": "247NEWS",
+      "publishedAt": "2026-11-14T12:00:53Z",
+      "durationSeconds": 19,
       "shortsHint": true,
       "verticalVerified": false
     },
     "migration": {
-      "id": "Cek9CkpNBtA",
-      "title": "117.8 Million Forcibly Displaced in 2025 | First Fall in a Decade #Shorts",
-      "channel": "The Global Report TV",
-      "publishedAt": "2026-11-15T05:43:20Z",
-      "durationSeconds": 49,
+      "id": "JXyIxlj8kO8",
+      "title": "Heavy Rain Floods 70,000 Tents in Gaza #Shorts",
+      "channel": "60 Second News",
+      "publishedAt": "2026-11-08T23:13:29Z",
+      "durationSeconds": 29,
       "shortsHint": true,
       "verticalVerified": false
     },
@@ -58,6 +58,24 @@
   },
   "alternatives": {
     "war": [
+      {
+        "id": "0wjP5z35VNQ",
+        "title": "Rafah Horror: Israeli Strike on Refugee Camp Sparks Global Fury",
+        "channel": "Ground Zero News",
+        "publishedAt": "2026-10-05T15:28:28Z",
+        "durationSeconds": 21,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "lakVIl43eUw",
+        "title": "🪖 Battlefield Update | Ukraine Says Starshield Disruptions Are Back As U.S. #Shorts",
+        "channel": "Modern Conflicts",
+        "publishedAt": "2026-11-12T22:16:44Z",
+        "durationSeconds": 44,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
       {
         "id": "vqyGVEQVVHw",
         "title": "Ukraine: Russia's Helo Losses - Own Forces? #Shorts",
@@ -82,24 +100,6 @@
         "channel": "Modern Conflicts",
         "publishedAt": "2026-11-10T20:02:34Z",
         "durationSeconds": 52,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "r1rgwEsjTcc",
-        "title": "Mi-28 Fires Cruise Missiles in UKRAINE! 🤯 #Shorts",
-        "channel": "Modern Conflicts",
-        "publishedAt": "2026-11-10T18:11:55Z",
-        "durationSeconds": 54,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "PUJwnAumKdA",
-        "title": "Mi-28s Launch Cruise Missiles in UKRAINE! #Shorts",
-        "channel": "Modern Conflicts",
-        "publishedAt": "2026-11-08T20:33:44Z",
-        "durationSeconds": 47,
         "shortsHint": true,
         "verticalVerified": false
       }
@@ -153,142 +153,142 @@
     ],
     "protests": [
       {
-        "id": "urirLHXba2A",
-        "title": "Opposition Rally Vs BJP Protest | जब सपा कार्यकर्ता को उठा ले गई पुलिस! VIRAL VIDEO | #shorts #news",
-        "channel": "NDTV India",
-        "publishedAt": "2026-11-02T04:36:20Z",
-        "durationSeconds": 26,
+        "id": "yxhOKOTpsho",
+        "title": "Why Is Europe Protesting? Country by Country #shorts",
+        "channel": "The Next Century",
+        "publishedAt": "2026-11-08T21:42:59Z",
+        "durationSeconds": 99,
         "shortsHint": true,
         "verticalVerified": false
       },
       {
-        "id": "BxtUshiQyHU",
-        "title": "German Protests Turn Violent: Extremists Hijack Gen Z Rally #Shorts",
-        "channel": "Pure Analysis",
-        "publishedAt": "2026-11-01T17:24:48Z",
-        "durationSeconds": 26,
+        "id": "7zFQAvuKA-w",
+        "title": "EUROPE UNREST SPREADS: Police clash with protesters in France, Germany, Portugal #shorts #shortvideo",
+        "channel": "American News Flash",
+        "publishedAt": "2026-11-02T04:41:17Z",
+        "durationSeconds": 119,
         "shortsHint": true,
         "verticalVerified": false
       },
       {
-        "id": "JEtwVvp6paY",
-        "title": "Gen Z-led protests in Germany turn violent | #AJ shorts",
-        "channel": "Al Jazeera English",
-        "publishedAt": "2026-11-01T00:23:04Z",
-        "durationSeconds": 54,
+        "id": "V5FLAnomv8I",
+        "title": "Kerala Teacher Protest: Woman Shaves Her Head | Where Is Rahul Gandhi? #shorts #kerala",
+        "channel": "tc_by_nikky",
+        "publishedAt": "2026-10-28T09:24:17Z",
+        "durationSeconds": 44,
         "shortsHint": true,
         "verticalVerified": false
       },
       {
-        "id": "z3u6CqQyrUM",
-        "title": "Protesters Rally in Lisbon Over Housing Crisis and Police Violence | AAJ-আজ Shorts",
-        "channel": "AAJ-আজ Shorts",
-        "publishedAt": "2026-11-02T09:00:03Z",
-        "durationSeconds": 15,
-        "shortsHint": true,
+        "id": "xjg5i6RN-9s",
+        "title": "O.M's Undercover Mission & Being Heumann's Public Protest | Bugle After Hours",
+        "channel": "TheDailyIndianBugle",
+        "publishedAt": "2026-11-15T01:32:51Z",
+        "durationSeconds": 38,
+        "shortsHint": false,
         "verticalVerified": false
       },
       {
-        "id": "UeuOqR8SwY8",
-        "title": "Delhi Police Help Protesters During INDIA Bloc Rally | Delhi Ground Report #Shorts",
-        "channel": "Neev 360",
-        "publishedAt": "2026-11-01T10:31:40Z",
-        "durationSeconds": 75,
+        "id": "F83BBxZXjTI",
+        "title": "Thousands Of Students Protest in Serbia’s Capital #protests #serbia #shorts",
+        "channel": "Express 24-7",
+        "publishedAt": "2026-10-23T06:21:40Z",
+        "durationSeconds": 96,
         "shortsHint": true,
         "verticalVerified": false
       }
     ],
     "climate": [
       {
-        "id": "QkqT8GUhhhE",
-        "title": "55,000 dead in 44 days: Russia's silent heat wave #Shorts",
-        "channel": "Quiet Threat",
-        "publishedAt": "2026-10-07T05:52:34Z",
+        "id": "-FMbOHoHG8A",
+        "title": "California Part 4: the storm goes statewide (Tahoe warning, flood risk) #Shorts",
+        "channel": "OuterTalk",
+        "publishedAt": "2026-11-16T17:17:29Z",
+        "durationSeconds": 99,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "fAswDiN9TFA",
+        "title": "Storm Floods Tijuana, Rosarito, Ensenada & San Quintín #shorts",
+        "channel": "Gringo Gazette North",
+        "publishedAt": "2026-11-15T01:57:42Z",
+        "durationSeconds": 52,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "BNBmMEKOhq0",
+        "title": "Storm Charles Slams Portugal! Lisbon Streets Flood! | Short News",
+        "channel": "English World TV",
+        "publishedAt": "2026-11-11T21:22:26Z",
+        "durationSeconds": 66,
+        "shortsHint": true,
+        "verticalVerified": false
+      },
+      {
+        "id": "iQ791enonJc",
+        "title": "Why is flood watch trending today? 🔍 Verified Breakdown #Shorts",
+        "channel": "game overall",
+        "publishedAt": "2026-11-16T21:09:53Z",
         "durationSeconds": 26,
         "shortsHint": true,
         "verticalVerified": false
       },
       {
-        "id": "0JXdXqF-H6s",
-        "title": "El Nino Effect Explained in 20 Sec 😱Earth is Heating!#shorts #global warming #elnino",
-        "channel": "Suneetha Tiger",
-        "publishedAt": "2026-10-12T10:55:40Z",
-        "durationSeconds": 91,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "6eDDPLVZ3VU",
-        "title": "Climate Crisis: Earth's Final Warning? 🌍🔥 | WORLD FOCUS #Shorts #worldfocus #국제뉴스 #글로벌이슈",
-        "channel": "WORLD FOCUS",
-        "publishedAt": "2026-11-12T23:45:11Z",
-        "durationSeconds": 43,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "hfmNRpH7sKw",
-        "title": "Climate Change: 🌍Dharti Ka Future Abhi Se Badal Raha Hai! 🔥 |Climate Crisis Explained #shorts #post",
-        "channel": "@SENSOR BOOMER",
-        "publishedAt": "2026-10-10T01:45:06Z",
-        "durationSeconds": 156,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "5GsZRvgU_4I",
-        "title": "A Powerful Storm System Is Moving Across the Northeast, Bringing Severe Weather Risks to... #Shorts",
-        "channel": "Nowly News",
-        "publishedAt": "2026-11-12T19:21:55Z",
-        "durationSeconds": 28,
+        "id": "l6hKKHIB_h8",
+        "title": "TEXAS FLOOD ALERT TODAY! 🚨 Houston, Galveston & Beaumont Brace for Storms  #shorts",
+        "channel": "Leo Verse ",
+        "publishedAt": "2026-11-15T11:20:28Z",
+        "durationSeconds": 59,
         "shortsHint": true,
         "verticalVerified": false
       }
     ],
     "migration": [
       {
-        "id": "Q_QBXciHKOk",
-        "title": "300,000 Refugees Flee Kosovo as Albania Struggles to Cope #shorts",
-        "channel": "The Enli Hamzai Podcast",
-        "publishedAt": "2026-11-09T20:31:07Z",
-        "durationSeconds": 179,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "JlXdmi30yeM",
-        "title": "Kosovo Refugees Stranded as Macedonia Closes Its Border #shorts",
-        "channel": "The Enli Hamzai Podcast",
-        "publishedAt": "2026-10-30T17:37:58Z",
-        "durationSeconds": 123,
-        "shortsHint": true,
-        "verticalVerified": false
-      },
-      {
-        "id": "XLiWlRuzgR4",
-        "title": "Why We Stopped Giving Ukrainian Refugees Food",
-        "channel": "Conor Clyne - New Europe Experience",
-        "publishedAt": "2026-11-05T00:06:19Z",
-        "durationSeconds": 123,
+        "id": "8iuelM_hgsk",
+        "title": "Palestinian boy weeps as Gaza displacement camp floods",
+        "channel": "Roya News English",
+        "publishedAt": "2026-11-07T23:27:57Z",
+        "durationSeconds": 61,
         "shortsHint": false,
         "verticalVerified": false
       },
       {
-        "id": "VbTTFi7Dq-s",
-        "title": "South Africa Clarifies Refugee Policy: “No Economic Refugees”#shorts #trending #explore #news #fy",
-        "channel": "Cezzy Reacts Studio ",
-        "publishedAt": "2026-10-09T05:02:23Z",
-        "durationSeconds": 118,
+        "id": "XpTW0-Bk3CM",
+        "title": "Heavy rains submerge displacement camps in Gaza City",
+        "channel": "Roya News English",
+        "publishedAt": "2026-11-09T04:52:43Z",
+        "durationSeconds": 110,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "S84Vqvxh3hc",
+        "title": "Gaza families in camp light fires with scrap as winter bites",
+        "channel": "Roya News English",
+        "publishedAt": "2026-11-12T04:36:03Z",
+        "durationSeconds": 117,
+        "shortsHint": false,
+        "verticalVerified": false
+      },
+      {
+        "id": "0wjP5z35VNQ",
+        "title": "Rafah Horror: Israeli Strike on Refugee Camp Sparks Global Fury",
+        "channel": "Ground Zero News",
+        "publishedAt": "2026-10-05T15:28:28Z",
+        "durationSeconds": 21,
         "shortsHint": true,
         "verticalVerified": false
       },
       {
-        "id": "UhQPdWG6T0Q",
-        "title": "Angelina Jolie’s $1 Million Gift to Afghan Refugee",
-        "channel": "OTC Tower",
-        "publishedAt": "2026-10-21T12:00:18Z",
-        "durationSeconds": 11,
-        "shortsHint": false,
+        "id": "E1pFO_Qq6VA",
+        "title": "Refugee Crisis after Partition | 1947 Partition | Delhi History | UPSC Bharat Darshan #Shorts",
+        "channel": "UPSC Bharat Darshan",
+        "publishedAt": "2026-10-03T16:52:49Z",
+        "durationSeconds": 175,
+        "shortsHint": true,
         "verticalVerified": false
       }
     ],
@@ -342,12 +342,12 @@
   },
   "recentlyShown": {
     "war": [
+      "CK4m7n_vyHA",
       "lakVIl43eUw",
       "rygr-VeyelE",
       "0wjP5z35VNQ",
       "em0uN-nzqJo",
       "qs_oHW9hrsE",
-      "CK4m7n_vyHA",
       "ljCIrQ5EVmU",
       "28oajIUHZaI",
       "jBFMRnBJ2HE",
@@ -369,6 +369,7 @@
       "ZIs_ho8kFtI"
     ],
     "protests": [
+      "IocvhXjgMaw",
       "jR3-BaOnRTU",
       "EK-ir2fo15I",
       "Csbwv1yKdhk",
@@ -385,6 +386,7 @@
       "aQSqALs_fzg"
     ],
     "climate": [
+      "bMKuFggVTgY",
       "zRznqSwmNAY",
       "5GsZRvgU_4I",
       "gVjS_qL_w7w",
@@ -401,6 +403,7 @@
       "bZvsALX1yYs"
     ],
     "migration": [
+      "JXyIxlj8kO8",
       "Cek9CkpNBtA",
       "fX-1YD0tXt8",
       "S_hQbEFX3c0",
@@ -432,11 +435,11 @@
     ]
   },
   "lastChangedAt": {
-    "war": "2026-11-16T09:55:31.111572+00:00",
+    "war": "2026-11-17T08:31:20.067716+00:00",
     "animals": "2026-11-16T09:55:31.111572+00:00",
-    "protests": "2026-11-16T09:55:31.111572+00:00",
-    "climate": "2026-11-16T09:55:31.111572+00:00",
-    "migration": "2026-11-16T09:55:31.111572+00:00",
+    "protests": "2026-11-17T08:31:20.067716+00:00",
+    "climate": "2026-11-17T08:31:20.067716+00:00",
+    "migration": "2026-11-17T08:31:20.067716+00:00",
     "wealth": "2026-11-16T09:55:31.111572+00:00"
   },
   "blockedIds": {},
